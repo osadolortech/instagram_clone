@@ -2,7 +2,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Profile
 from .serializers import ProfileSerializer
 from rest_framework import viewsets
-from instagramapi.permision import CustomPermission
+from instagramapi.userpermission import CustomPermission
 
 # Create your views here.
 

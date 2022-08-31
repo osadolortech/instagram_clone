@@ -14,7 +14,7 @@ class ProfileSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class CustomeUser(ModelSerializer):
+class CustomUser(ModelSerializer):
     user_profile = ProfileSerializer(read_only=True)
     post = InstaPost()
     class Meta:

@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from .permision import CustomPermission
+from .userpermission import CustomPermission
 from django.db.models import Q
 from .models import ImageModel,Comment,LikePost,InstaPost
 from .serialzers import InstapostSrilaizers,ImageSerializer,LikePostSerilaizer,CommentSerializer

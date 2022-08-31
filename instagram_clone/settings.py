@@ -111,7 +111,7 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 }
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'user.serializers.CustomeUser',
+    'USER_DETAILS_SERIALIZER': 'user.serializers.CustomUser',
 }
 
 
