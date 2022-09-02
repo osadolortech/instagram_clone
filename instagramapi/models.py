@@ -12,6 +12,9 @@ class InstaPost(models.Model):
     class Meta:
         ordering = ['created_at']
 
+    def __str__(self):
+        return self.caption
+
     @property
     def num_of_like(self):
         return LikePost.objects.filter(post=self).count()
@@ -37,8 +40,14 @@ class Comment(models.Model):
     comment = models.CharField(max_length=300)
     created_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.comment
+
 
 class LikePost(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="like_post")
     post = models.ForeignKey(InstaPost,on_delete=models.CASCADE,related_name="like_post")
     created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user
