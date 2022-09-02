@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from .userpermission import CustomPermission
 from django.db.models import Q
 from .models import ImageModel,Comment,LikePost,InstaPost
-from .serialzers import InstapostSrilaizers,ImageSerializer,LikePostSerilaizer,CommentSerializer
+from .serialzers import InstapostSerializer,ImageSerializer,LikePostSerilaizer,CommentSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 # Create your views here.
 
@@ -10,12 +10,10 @@ from rest_framework.parsers import MultiPartParser, FormParser
 class InstaPostViews(viewsets.ModelViewSet):
     permission_classes = [CustomPermission]
     queryset= InstaPost.objects.all()
-    serializer_class = InstapostSrilaizers
+    serializer_class = InstapostSerializer
 
     def perform_create(self, serializer):
         return serializer.save(user=self.request.user)
-
-
 
 class ImageView(viewsets.ModelViewSet):
     queryset = ImageModel.objects.all()

@@ -49,5 +49,5 @@ class LikePost(models.Model):
     post = models.ForeignKey(InstaPost,on_delete=models.CASCADE,related_name="like_post")
     created_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.user

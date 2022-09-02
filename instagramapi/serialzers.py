@@ -3,6 +3,7 @@ from .models import InstaPost,Comment,ImageModel,LikePost
 
 
 class ImageSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source="user.username")
     class Meta:
         model = ImageModel
         fields = "__all__"
@@ -10,18 +11,21 @@ class ImageSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source="user.username")
     class Meta:
         model = Comment
         fields = "__all__"
 
 
 class LikePostSerilaizer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source="user.username")
     class Meta:
         model = LikePost
         fields="__all__"
 
 
-class InstapostSrilaizers(serializers.ModelSerializer):
+class InstapostSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source="user.username")
     post_image = ImageSerializer(many=True,read_only=True)
     like_post= LikePostSerilaizer(many=True, read_only=True)
     post_comment = CommentSerializer(many=True, read_only=True)

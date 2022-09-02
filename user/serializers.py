@@ -23,6 +23,8 @@ class CustomUser(ModelSerializer):
             "id","name","username","user_profile","post"
         ]
         read_only_fileds = ("id","name","post")
+
+
         
     # def create(self, validated_data):
     #     users_data = validated_data.pop('user_profile')
