@@ -18,7 +18,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class LikePostSerilaizer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source="user.username")
+    # user = serializers.ReadOnlyField(source="user.username")
     class Meta:
         model = LikePost
         fields="__all__"

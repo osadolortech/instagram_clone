@@ -25,6 +25,9 @@ class CommentView(viewsets.ModelViewSet):
     queryset =Comment.objects.all()
     serializer_class = CommentSerializer
 
+    def perform_create(self, serializer):
+        return serializer.save(user=self.request.user)
+
 class LikeView(viewsets.ModelViewSet):
     queryset =LikePost.objects.all()
     serializer_class = LikePostSerilaizer
@@ -35,4 +38,4 @@ class LikeView(viewsets.ModelViewSet):
         if subset.count() > 0:
             subset.first().delete()
             return
-        serializer.save()
+        serializer.save(user=self.request.user)
