@@ -9,6 +9,7 @@ from instagramapi.serialzers import InstaPost
 
 
 class ProfileSerializer(ModelSerializer):
+    user = serializers.ReadOnlyField(source="user.username")
     class Meta:
         model = Profile
         fields = "__all__"
